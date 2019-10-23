@@ -1,0 +1,4 @@
+.stack-work/
+stack.yaml*
+*.cabal
+metadata.json
