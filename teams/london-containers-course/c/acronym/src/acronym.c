@@ -21,10 +21,10 @@ char *abbreviate(const char *phrase)
       {
         value -= 32;
       }
-      acronym[k] = value;
+      *(acronym + k) = value;
       ++k;
     }
   }
-    acronym[k] = '\0';
-    return &acronym[0];
+    *(acronym + k) = '\0';
+    return acronym;
 }
