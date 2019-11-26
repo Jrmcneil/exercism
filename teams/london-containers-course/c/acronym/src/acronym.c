@@ -1,14 +1,17 @@
 #include "acronym.h"
 #include <stdlib.h>
 
-char *acronym;
 char *abbreviate(const char *phrase)
 {
+  char *acronym;
   int i;
   int k = 0;
-  acronym = malloc(10*sizeof(char));
 
-  if (phrase != NULL && *phrase != '\0') {
+  if (phrase == NULL || *phrase == '\0') {
+    return NULL;
+  }
+
+  acronym = malloc(10);
   for (i = 0; *(phrase + i) != '\0'; ++i)
   {
     if (i == 0 || *(phrase + i - 1) == ' ' || *(phrase + i - 1) == '-')
@@ -24,7 +27,4 @@ char *abbreviate(const char *phrase)
   }
     acronym[k] = '\0';
     return &acronym[0];
-  }
-  free(acronym);
-  return NULL;
 }
